@@ -59,21 +59,16 @@ int main (int argc, char **argv)
     goal.goal_id.stamp=ros::Time::now()+delta;
     //goal.goal_id.id="stringa";
     //goal.goal.trajectory.header.seq=1;
-    goal.goal.trajectory.header.stamp=ros::Time::now()+delta;
+    goal.goal.trajectory.header.stamp=0;
     //goal.goal.trajectory.header.frame_id="stringa";
     goal.goal.trajectory.joint_names=joint_names_;
     goal.goal.trajectory.points.resize(1);
     //goal.goal.trajectory.points[0].positions=q0.position;
     int ind =0;
     goal.goal.trajectory.points[ind].positions.resize(7);
-    goal.goal.trajectory.points[ind].positions[0] = -0.0989;
-    goal.goal.trajectory.points[ind].positions[1] = -1.1552;
-    goal.goal.trajectory.points[ind].positions[2] = 0.0814;
-    goal.goal.trajectory.points[ind].positions[3] = -2.2529;
-    goal.goal.trajectory.points[ind].positions[4] = -0.0399;
-    goal.goal.trajectory.points[ind].positions[5] = 1.7907;
-    goal.goal.trajectory.points[ind].positions[6] = 3.14;
-    //goal.goal.trajectory.points[0].positions[6]+=M_PI/16;
+    goal.goal.trajectory.points[ind].positions = q0.position;
+
+    goal.goal.trajectory.points[0].positions[6]+=M_PI/4;
     //goal.goal.trajectory.points.velocities=vettore di veelocità;
     //goal.goal.trajectory.points.accelerations=vettore di accelerazioni
     //goal.goal.trajectory.points.effort=vettore di forze;
@@ -88,12 +83,12 @@ int main (int argc, char **argv)
     //goal.goal.trajectory.path_tolerance.veelocity=1.0;
     //goal.goal.trajectory.path_tolerance.acceeleration=1.0;
 
-    //goal.goal.goal_tolerance.resize(1);
+    goal.goal.goal_tolerance.resize(1);
     //goal.goal.goal_tolerance[0].name="tolleranza2";
     //goal.goal.trajectory.goal_tolerance.position=1.
     //goal.goal.trajectory.goal_tolerance.velocity=1.0;
     //goal.goal.trajectory.goal_tolerance.acceleration=1.0;
-    //goal.goal.trajectory.goal_tolerance.goal_time_tolerance=duration;
+    goal.goal.trajectory.goal_tolerance.goal_time_tolerance=ros::Duration(5.0);
 
 
     //invia la richiesta all'action_server
