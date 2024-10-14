@@ -48,47 +48,54 @@ int main (int argc, char **argv)
 
     ROS_INFO("Action server started, sending goal.");
     // send a goal to the action
-    control_msgs::FollowJointTrajectoryActionGoal goal;
+        control_msgs::FollowJointTrajectoryActionGoal goal;
  
     goal.goal.trajectory.joint_names=joint_names_;
 
-    goal.header.seq=1;
+   
+    //goal.header.seq=1;
     ros::Duration delta(2.0);
     goal.header.stamp=ros::Time::now()+delta;
-    goal.header.frame_id="ci vuole una stringa";
+    //goal.header.frame_id="ci vuole una stringa";
     goal.goal_id.stamp=ros::Time::now()+delta;
-    goal.goal_id.id="stringa";
-    goal.goal.trajectory.header.seq=1;
-    goal.goal.trajectory.header.stamp=ros::Time::now()+delta;
-    goal.goal.trajectory.header.frame_id="stringa";
+    //goal.goal_id.id="stringa";
+    //goal.goal.trajectory.header.seq=1;
+    goal.goal.trajectory.header.stamp=ros::Time(0);
+    //goal.goal.trajectory.header.frame_id="stringa";
     goal.goal.trajectory.joint_names=joint_names_;
     goal.goal.trajectory.points.resize(2);
-    goal.goal.trajectory.points[0].positions=q0.position;
-    goal.goal.trajectory.points[1].positions=q0.position;
-    goal.goal.trajectory.points[1].positions[6]+=M_PI/2;
+    //goal.goal.trajectory.points[0].positions=q0.position;
 
+    goal.goal.trajectory.points[0].positions.resize(7);
+    goal.goal.trajectory.points[0].positions = q0.position;
+
+    
+    goal.goal.trajectory.points[1].positions.resize(7);
+    goal.goal.trajectory.points[1].positions = q0.position;
+    goal.goal.trajectory.points[1].positions[6]-= 0.8;
+    goal.goal.trajectory.points[1].positions[5]-= 0.8;
 
     //goal.goal.trajectory.points.velocities=vettore di veelocità;
     //goal.goal.trajectory.points.accelerations=vettore di accelerazioni
     //goal.goal.trajectory.points.effort=vettore di forze;
 
-    ros::Duration iniziale(0.0);
-    ros::Duration finale(15.0);
+    ros::Duration iniziale(0,0);
+    ros::Duration finale(0,15000000000);
     goal.goal.trajectory.points[0].time_from_start=iniziale;
     goal.goal.trajectory.points[1].time_from_start=finale;
 
-    goal.goal.path_tolerance.resize(1);
-    goal.goal.path_tolerance[0].name="tolleranza1";
+    //goal.goal.path_tolerance.resize(1);
+    //goal.goal.path_tolerance[0].name="tolleranza1";
     //goal.goal.trajectory.path_tolerance.position=1.0;
     //goal.goal.trajectory.path_tolerance.veelocity=1.0;
     //goal.goal.trajectory.path_tolerance.acceeleration=1.0;
 
     goal.goal.goal_tolerance.resize(1);
-    goal.goal.goal_tolerance[0].name="tolleranza2";
+    //goal.goal.goal_tolerance[0].name="tolleranza2";
     //goal.goal.trajectory.goal_tolerance.position=1.
     //goal.goal.trajectory.goal_tolerance.velocity=1.0;
     //goal.goal.trajectory.goal_tolerance.acceleration=1.0;
-    //goal.goal.trajectory.goal_tolerance.goal_time_tolerance=duration;
+    goal.goal.goal_time_tolerance=ros::Duration(0, 500000000);
     
     //invia la richiesta all'action_server
     ac.sendGoal(goal.goal);
