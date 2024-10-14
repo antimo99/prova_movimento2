@@ -71,7 +71,7 @@ int main (int argc, char **argv)
 
     ros::Duration iniziale(0.0);
     ros::Duration finale(15.0);
-    goal.goal.trajectory.points[0].time_from_start=iniziale;
+    goal.goal.trajectory.points[0].time_from_start=finale;
 
     goal.goal.path_tolerance.resize(1);
     goal.goal.path_tolerance[0].name="tolleranza1";
