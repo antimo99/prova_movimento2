@@ -88,7 +88,7 @@ int main (int argc, char **argv)
     //goal.goal.trajectory.goal_tolerance.position=1.
     //goal.goal.trajectory.goal_tolerance.velocity=1.0;
     //goal.goal.trajectory.goal_tolerance.acceleration=1.0;
-    goal.goal.trajectory.goal_time_tolerance=ros::Duration(5.0);
+    goal.goal.goal_time_tolerance=ros::Duration(5.0);
 
 
     //invia la richiesta all'action_server
