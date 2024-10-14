@@ -73,8 +73,8 @@ int main (int argc, char **argv)
     //goal.goal.trajectory.points.accelerations=vettore di accelerazioni
     //goal.goal.trajectory.points.effort=vettore di forze;
 
-    ros::Duration iniziale(0.0);
-    ros::Duration finale(15.0);
+    ros::Duration iniziale(0,0);
+    ros::Duration finale(0,15000000000);
     goal.goal.trajectory.points[0].time_from_start=finale;
 
     //goal.goal.path_tolerance.resize(1);
@@ -88,7 +88,7 @@ int main (int argc, char **argv)
     //goal.goal.trajectory.goal_tolerance.position=1.
     //goal.goal.trajectory.goal_tolerance.velocity=1.0;
     //goal.goal.trajectory.goal_tolerance.acceleration=1.0;
-    goal.goal.goal_time_tolerance=ros::Duration(5.0);
+    goal.goal.goal_time_tolerance=ros::Duration(0, 500000000);
 
 
     //invia la richiesta all'action_server
