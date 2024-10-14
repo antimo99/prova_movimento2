@@ -21,6 +21,7 @@ catkin_package()
 include_directories(${catkin_INCLUDE_DIRS})
 
 add_executable(prova4 src/prova4.cpp)
+add_executable(prova4b src/prova4b.cpp)
 
 target_link_libraries(prova4 
       ${catkin_LIBRARIES})
