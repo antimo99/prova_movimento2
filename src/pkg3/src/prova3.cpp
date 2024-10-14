@@ -64,6 +64,7 @@ int main (int argc, char **argv)
     goal.goal.trajectory.joint_names=joint_names_;
     goal.goal.trajectory.points.resize(1);
     goal.goal.trajectory.points[0].positions=q0.position;
+        goal.goal.trajectory.points[0].positions[6]+=M_PI/16;
     //goal.goal.trajectory.points.velocities=vettore di veelocità;
     //goal.goal.trajectory.points.accelerations=vettore di accelerazioni
     //goal.goal.trajectory.points.effort=vettore di forze;
