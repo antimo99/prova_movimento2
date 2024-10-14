@@ -64,7 +64,7 @@ int main (int argc, char **argv)
     goal.goal.trajectory.joint_names=joint_names_;
     goal.goal.trajectory.points.resize(1);
     //goal.goal.trajectory.points[0].positions=q0.position;
-    ind =1ì0;
+    ind =0;
     goal.trajectory.points[ind].positions.resize(7);
     goal.trajectory.points[ind].positions[0] = -0.0989;
     goal.trajectory.points[ind].positions[1] = -1.1552;
