@@ -63,7 +63,7 @@ int main (int argc, char **argv)
     goal.goal.trajectory.header.stamp=ros::Time(0);
     //goal.goal.trajectory.header.frame_id="stringa";
     goal.goal.trajectory.joint_names=joint_names_;
-    goal.goal.trajectory.points.resize(2);
+    goal.goal.trajectory.points.resize(3);
     //goal.goal.trajectory.points[0].positions=q0.position;
 
     goal.goal.trajectory.points[0].positions.resize(7);
@@ -75,14 +75,20 @@ int main (int argc, char **argv)
     goal.goal.trajectory.points[1].positions[6]-= 0.8;
     goal.goal.trajectory.points[1].positions[5]-= 0.8;
 
+    goal.goal.trajectory.points[2].positions.resize(7);
+    goal.goal.trajectory.points[2].positions = q0.position;
+    goal.goal.trajectory.points[1].positions[4]+= 0.5;
+
     //goal.goal.trajectory.points.velocities=vettore di veelocità;
     //goal.goal.trajectory.points.accelerations=vettore di accelerazioni
     //goal.goal.trajectory.points.effort=vettore di forze;
 
     ros::Duration iniziale(0,0);
-    ros::Duration finale(0,15000000000);
+    ros::Duration intermedia(0,15000000000);
+    ros::Duration finale(0,20000000000);
     goal.goal.trajectory.points[0].time_from_start=iniziale;
-    goal.goal.trajectory.points[1].time_from_start=finale;
+    goal.goal.trajectory.points[1].time_from_start=intermedia;
+    goal.goal.trajectory.points[2].time_from_start=finale;
 
     //goal.goal.path_tolerance.resize(1);
     //goal.goal.path_tolerance[0].name="tolleranza1";
