@@ -88,7 +88,7 @@ int main (int argc, char **argv)
 
 
     //invia la richiesta all'action_server
-    ac.sendGoal(goal.goal);
+    ac.sendGoal(goal);
 
     //wait for the action to return
     bool finished_before_timeout = ac.waitForResult(ros::Duration(30.0));
