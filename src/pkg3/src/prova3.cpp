@@ -59,7 +59,7 @@ int main (int argc, char **argv)
     goal.goal_id.stamp=ros::Time::now()+delta;
     //goal.goal_id.id="stringa";
     //goal.goal.trajectory.header.seq=1;
-    //goal.goal.trajectory.header.stamp=ros::Time(0.0);
+    goal.goal.trajectory.header.stamp=ros::Time(0);
     //goal.goal.trajectory.header.frame_id="stringa";
     goal.goal.trajectory.joint_names=joint_names_;
     goal.goal.trajectory.points.resize(1);
