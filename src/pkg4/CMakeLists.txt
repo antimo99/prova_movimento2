@@ -25,3 +25,6 @@ add_executable(prova4b src/prova4b.cpp)
 
 target_link_libraries(prova4 
       ${catkin_LIBRARIES})
+
+target_link_libraries(prova4b 
+      ${catkin_LIBRARIES})
