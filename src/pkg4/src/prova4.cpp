@@ -84,8 +84,8 @@ int main (int argc, char **argv)
     //goal.goal.trajectory.points.effort=vettore di forze;
 
     ros::Duration iniziale(0,0);
-    ros::Duration intermedia(0,15000000000);
-    ros::Duration finale(0,20000000000);
+    ros::Duration intermedia(15,0);
+    ros::Duration finale(20,0);
     goal.goal.trajectory.points[0].time_from_start=iniziale;
     goal.goal.trajectory.points[1].time_from_start=intermedia;
     goal.goal.trajectory.points[2].time_from_start=finale;
