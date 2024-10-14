@@ -63,7 +63,16 @@ int main (int argc, char **argv)
     //goal.goal.trajectory.header.frame_id="stringa";
     goal.goal.trajectory.joint_names=joint_names_;
     goal.goal.trajectory.points.resize(1);
-    goal.goal.trajectory.points[0].positions=q0.position;
+    //goal.goal.trajectory.points[0].positions=q0.position;
+    ind =1ì0;
+    goal.trajectory.points[ind].positions.resize(7);
+    goal.trajectory.points[ind].positions[0] = -0.0989;
+    goal.trajectory.points[ind].positions[1] = -1.1552;
+    goal.trajectory.points[ind].positions[2] = 0.0814;
+    goal.trajectory.points[ind].positions[3] = -2.2529;
+    goal.trajectory.points[ind].positions[4] = -0.0399;
+    goal.trajectory.points[ind].positions[5] = 1.7907;
+    goal.trajectory.points[ind].positions[6] = 3.14;
     //goal.goal.trajectory.points[0].positions[6]+=M_PI/16;
     //goal.goal.trajectory.points.velocities=vettore di veelocità;
     //goal.goal.trajectory.points.accelerations=vettore di accelerazioni
