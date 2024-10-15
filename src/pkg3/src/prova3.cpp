@@ -46,6 +46,10 @@ int main (int argc, char **argv)
     ac.waitForServer(); //will wait for infinite time
 
     ROS_INFO("Action server started, sending goal.");
+
+    ros::Timer timer_ = nh_.createTimer(ros::Duration(1.0), &TimerExample::timerCallback, this);
+
+    
     // send a goal to the action
     control_msgs::FollowJointTrajectoryActionGoal goal;
  
@@ -112,4 +116,14 @@ int main (int argc, char **argv)
     //exit
     return 0;
 }
+
+    void timerCallback(const ros::TimerEvent&)
+    {
+        std_msgs::String msg;
+        msg.data = "Hello, ROS!";
+
+        // Pubblica il messaggio
+        pub_.publish(msg);
+        ROS_INFO("Published: %s", msg.data.c_str());
+    }
 
